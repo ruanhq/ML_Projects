@@ -3,5 +3,5 @@ Machine Learning related projects conducted during graduate study in University 
 Crack Detection via application of CNN</br>
 LSTM for text classification</br>
 Titanic Classification Practice(Kaggle)</br>
-House Prices Prediction(Advanced Regression)</br>
+House Prices Prediction:Advanced Regression(Kaggle)</br>
 
