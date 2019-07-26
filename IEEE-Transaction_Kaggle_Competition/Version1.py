@@ -348,6 +348,14 @@ from sklearn.model_selection import StratifiedKFold, KFold, RepeatedKFold, Group
 folds = TimeSeriesSplit(n_splits = 10)
 #folds = KFold(n_splits = 5)
 
+
+####
+"""
+Inspired by the following kernels: 
+1. https://www.kaggle.com/kabure/extensive-eda-and-modeling-xgb-hyperopt
+2. https://www.kaggle.com/stocks/under-sample-with-multiple-runs
+"""
+
 def train_model_classification(X, X_test, y, params, folds, model_type='lgb', eval_metric='auc', columns=None, plot_feature_importance=False, model=None,
                                verbose=10000, early_stopping_rounds=200, n_estimators=50000, splits=None, n_folds=3, averaging='usual'):
     """
