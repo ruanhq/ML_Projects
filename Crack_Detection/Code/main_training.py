@@ -152,6 +152,7 @@ class Model:
                                      filter_size=filter_size2,
                                      num_filters=num_filters2)
         layer_conv2=tf.layers.batch_normalization(layer_conv2)
+
         #Max Pool Layer
         ksize2 = [1,2,2,1]
         strides2 = [1,1,1,1]
@@ -195,7 +196,10 @@ class Model:
         correct_prediction = tf.equal(self.y_pred_cls, self.y_true_cls)
         accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
         return optimizer, accuracy
-        
+    #random batch the data:
+    """
+    :Inspired by https://stackoverflow.com/questions/45281508/random-batch-generator-tensorflow
+    """
     def random_batch(self):
         # Number of images in the training-set.
         num_images = len(self.train_images)
@@ -238,7 +242,6 @@ class Model:
             cls_pred[i:j] = sess.run(self.y_pred_cls, feed_dict=feed_dict)
     
             # Set the start-index for the next batch to the
-            # end-index of the current batch.
             i = j
     
         # Create a boolean array whether each image is correctly classified.
@@ -248,10 +251,11 @@ class Model:
         # images divided by the total number of images in the test-set.
         acc = float(correct.sum()) / num_test
     
-        # Print the accuracy.
-        msg = "Accuracy on Test-Set: {0:.1%} ({1} / {2})"
+        # Print the accuracy
+        msg = "Accuracy on Test-Set: {0:.2%} ({1} / {2})"
         print(msg.format(acc, correct.sum(), num_test))
-        
+    
+    #Main iteration to optimize:
     def optimize(self, num_iterations):
         # Ensure we update the global variable rather than a local copy.
         global total_iterations

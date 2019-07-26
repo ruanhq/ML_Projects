@@ -117,141 +117,18 @@ test['TransactionAmt_to_mean_card4'] = test['TransactionAmt'] / test.groupby(['c
 test['TransactionAmt_to_std_card3'] = test['TransactionAmt'] / test.groupby(['card3'])['TransactionAmt'].std()
 test['TransactionAmt_to_std_card4'] = test['TransactionAmt'] / test.groupby(['card4'])['TransactionAmt'].std()
 
+feature_mean_std = ['id_02',  'id_04',  'D11',  'D15']
+card_dict = ['card1', 'card4']
 
-train['id2_mean_card1'] = train['id_02'] / train.groupby(['card1'])['id_02'].transform('mean')
-train['id2_mean_card2'] = train['id_02'] / train.groupby(['card2'])['id_02'].transform('mean')
-train['id2_mean_card3'] = train['id_02'] / train.groupby(['card3'])['id_02'].transform('mean')
-train['id2_mean_card4'] = train['id_02'] / train.groupby(['card4'])['id_02'].transform('mean')
-
-
-
-train['id2_std_card1'] = train['id_02'] / train.groupby(['card1'])['id_02'].transform('std')
-train['id2_std_card2'] = train['id_02'] / train.groupby(['card2'])['id_02'].transform('std')
-train['id2_std_card3'] = train['id_02'] / train.groupby(['card3'])['id_02'].transform('std')
-train['id2_std_card4'] = train['id_02'] / train.groupby(['card4'])['id_02'].transform('std')
-
-
-
-
-
-test['id2_mean_card1'] = test['id_02'] / test.groupby(['card1'])['id_02'].transform('mean')
-test['id2_mean_card2'] = test['id_02'] / test.groupby(['card2'])['id_02'].transform('mean')
-test['id2_mean_card3'] = test['id_02'] / test.groupby(['card3'])['id_02'].transform('mean')
-test['id2_mean_card4'] = test['id_02'] / test.groupby(['card4'])['id_02'].transform('mean')
-
-
-
-test['id2_std_card1'] = train['id_02'] / test.groupby(['card1'])['id_02'].transform('std')
-test['id2_std_card2'] = train['id_02'] / test.groupby(['card2'])['id_02'].transform('std')
-test['id2_std_card3'] = train['id_02'] / test.groupby(['card3'])['id_02'].transform('std')
-test['id2_std_card4'] = train['id_02'] / test.groupby(['card4'])['id_02'].transform('std')
-
-
-train['D12_to_mean_card1'] = train['D12'] / train.groupby(['card1'])['D12'].transform('mean')
-train['D12_to_mean_card4'] = train['D12'] / train.groupby(['card4'])['D12'].transform('mean')
-train['D12_to_std_card1'] = train['D12'] / train.groupby(['card1'])['D12'].transform('std')
-train['D12_to_std_card4'] = train['D12'] / train.groupby(['card4'])['D12'].transform('std')
-
-test['D12_to_mean_card1'] = test['D12'] / test.groupby(['card1'])['D12'].transform('mean')
-test['D12_to_mean_card4'] = test['D12'] / test.groupby(['card4'])['D12'].transform('mean')
-test['D12_to_std_card1'] = test['D12'] / test.groupby(['card1'])['D12'].transform('std')
-test['D12_to_std_card4'] = test['D12'] / test.groupby(['card4'])['D12'].transform('std')
-
-train['D12_to_mean_card1'] = train['D12'] / train.groupby(['card1'])['D12'].transform('mean')
-train['D12_to_mean_card4'] = train['D12'] / train.groupby(['card4'])['D12'].transform('mean')
-train['D12_to_std_card1'] = train['D12'] / train.groupby(['card1'])['D12'].transform('std')
-train['D12_to_std_card4'] = train['D12'] / train.groupby(['card4'])['D12'].transform('std')
-
-test['D12_to_mean_card1'] = test['D12'] / test.groupby(['card1'])['D12'].transform('mean')
-test['D12_to_mean_card4'] = test['D12'] / test.groupby(['card4'])['D12'].transform('mean')
-test['D12_to_std_card1'] = test['D12'] / test.groupby(['card1'])['D12'].transform('std')
-test['D12_to_std_card4'] = test['D12'] / test.groupby(['card4'])['D12'].transform('std')
-
-train['D12_to_mean_card2'] = train['D12'] / train.groupby(['card2'])['D12'].transform('mean')
-train['D12_to_mean_card3'] = train['D12'] / train.groupby(['card3'])['D12'].transform('mean')
-train['D12_to_std_card2'] = train['D12'] / train.groupby(['card2'])['D12'].transform('std')
-train['D12_to_std_card3'] = train['D12'] / train.groupby(['card3'])['D12'].transform('std')
-
-test['D12_to_mean_card2'] = test['D12'] / test.groupby(['card2'])['D12'].transform('mean')
-test['D12_to_mean_card3'] = test['D12'] / test.groupby(['card3'])['D12'].transform('mean')
-test['D12_to_std_card2'] = test['D12'] / test.groupby(['card2'])['D12'].transform('std')
-test['D12_to_std_card3'] = test['D12'] / test.groupby(['card3'])['D12'].transform('std')
-
-train['D12_to_mean_card2'] = train['D12'] / train.groupby(['card2'])['D12'].transform('mean')
-train['D12_to_mean_card3'] = train['D12'] / train.groupby(['card3'])['D12'].transform('mean')
-train['D12_to_std_card2'] = train['D12'] / train.groupby(['card2'])['D12'].transform('std')
-train['D12_to_std_card3'] = train['D12'] / train.groupby(['card3'])['D12'].transform('std')
-
-test['D12_to_mean_card2'] = test['D12'] / test.groupby(['card2'])['D12'].transform('mean')
-test['D12_to_mean_card3'] = test['D12'] / test.groupby(['card3'])['D12'].transform('mean')
-test['D12_to_std_card2'] = test['D12'] / test.groupby(['card2'])['D12'].transform('std')
-test['D12_to_std_card3'] = test['D12'] / test.groupby(['card3'])['D12'].transform('std')
-
-train['D12_to_mean_addr1'] = train['D12'] / train.groupby(['addr1'])['D12'].transform('mean')
-test['D12_to_mean_addr1'] = test['D12'] / test.groupby(['addr1'])['D12'].transform('mean')
-
-train['D12_to_std_addr1'] = train['D12'] / train.groupby(['addr1'])['D12'].transform('std')
-test['D12_to_std_addr1'] = test['D12'] / test.groupby(['addr1'])['D12'].transform('std')
-
-train['D12_to_mean_addr2'] = train['D12'] / train.groupby(['addr2'])['D12'].transform('mean')
-test['D12_to_mean_addr2'] = test['D12'] / test.groupby(['addr2'])['D12'].transform('mean')
-
-train['D12_to_std_addr2'] = train['D12'] / train.groupby(['addr2'])['D12'].transform('std')
-test['D12_to_std_addr2'] = test['D12'] / test.groupby(['addr2'])['D12'].transform('std')
-
-
-train['D15_to_mean_card1'] = train['D15'] / train.groupby(['card1'])['D15'].transform('mean')
-train['D15_to_mean_card4'] = train['D15'] / train.groupby(['card4'])['D15'].transform('mean')
-train['D15_to_std_card1'] = train['D15'] / train.groupby(['card1'])['D15'].transform('std')
-train['D15_to_std_card4'] = train['D15'] / train.groupby(['card4'])['D15'].transform('std')
-
-test['D15_to_mean_card1'] = test['D15'] / test.groupby(['card1'])['D15'].transform('mean')
-test['D15_to_mean_card4'] = test['D15'] / test.groupby(['card4'])['D15'].transform('mean')
-test['D15_to_std_card1'] = test['D15'] / test.groupby(['card1'])['D15'].transform('std')
-test['D15_to_std_card4'] = test['D15'] / test.groupby(['card4'])['D15'].transform('std')
-
-train['D15_to_mean_card1'] = train['D15'] / train.groupby(['card1'])['D15'].transform('mean')
-train['D15_to_mean_card4'] = train['D15'] / train.groupby(['card4'])['D15'].transform('mean')
-train['D15_to_std_card1'] = train['D15'] / train.groupby(['card1'])['D15'].transform('std')
-train['D15_to_std_card4'] = train['D15'] / train.groupby(['card4'])['D15'].transform('std')
-
-test['D15_to_mean_card1'] = test['D15'] / test.groupby(['card1'])['D15'].transform('mean')
-test['D15_to_mean_card4'] = test['D15'] / test.groupby(['card4'])['D15'].transform('mean')
-test['D15_to_std_card1'] = test['D15'] / test.groupby(['card1'])['D15'].transform('std')
-test['D15_to_std_card4'] = test['D15'] / test.groupby(['card4'])['D15'].transform('std')
-
-train['D15_to_mean_card2'] = train['D15'] / train.groupby(['card2'])['D15'].transform('mean')
-train['D15_to_mean_card3'] = train['D15'] / train.groupby(['card3'])['D15'].transform('mean')
-train['D15_to_std_card2'] = train['D15'] / train.groupby(['card2'])['D15'].transform('std')
-train['D15_to_std_card3'] = train['D15'] / train.groupby(['card3'])['D15'].transform('std')
-
-test['D15_to_mean_card2'] = test['D15'] / test.groupby(['card2'])['D15'].transform('mean')
-test['D15_to_mean_card3'] = test['D15'] / test.groupby(['card3'])['D15'].transform('mean')
-test['D15_to_std_card2'] = test['D15'] / test.groupby(['card2'])['D15'].transform('std')
-test['D15_to_std_card3'] = test['D15'] / test.groupby(['card3'])['D15'].transform('std')
-
-train['D15_to_mean_card2'] = train['D15'] / train.groupby(['card2'])['D15'].transform('mean')
-train['D15_to_mean_card3'] = train['D15'] / train.groupby(['card3'])['D15'].transform('mean')
-train['D15_to_std_card2'] = train['D15'] / train.groupby(['card2'])['D15'].transform('std')
-train['D15_to_std_card3'] = train['D15'] / train.groupby(['card3'])['D15'].transform('std')
-
-test['D15_to_mean_card2'] = test['D15'] / test.groupby(['card2'])['D15'].transform('mean')
-test['D15_to_mean_card3'] = test['D15'] / test.groupby(['card3'])['D15'].transform('mean')
-test['D15_to_std_card2'] = test['D15'] / test.groupby(['card2'])['D15'].transform('std')
-test['D15_to_std_card3'] = test['D15'] / test.groupby(['card3'])['D15'].transform('std')
-
-train['D15_to_mean_addr1'] = train['D15'] / train.groupby(['addr1'])['D15'].transform('mean')
-test['D15_to_mean_addr1'] = test['D15'] / test.groupby(['addr1'])['D15'].transform('mean')
-
-train['D15_to_std_addr1'] = train['D15'] / train.groupby(['addr1'])['D15'].transform('std')
-test['D15_to_std_addr1'] = test['D15'] / test.groupby(['addr1'])['D15'].transform('std')
-
-train['D15_to_mean_addr2'] = train['D15'] / train.groupby(['addr2'])['D15'].transform('mean')
-test['D15_to_mean_addr2'] = test['D15'] / test.groupby(['addr2'])['D15'].transform('mean')
-
-train['D15_to_std_addr2'] = train['D15'] / train.groupby(['addr2'])['D15'].transform('std')
-test['D15_to_std_addr2'] = test['D15'] / test.groupby(['addr2'])['D15'].transform('std')
-
+for feat in feature_mean_std:
+    for card in card_dict:
+        cur_feature = feat + '_mean_' + card
+        train[cur_feature] = train[feat]/ train.groupby([card])[feat].transform('mean')
+        test[cur_feature] = test[feat]/ test.groupby([card])[feat].transform('mean')
+        cur_feature = feat + '_sd_' + card
+        train[cur_feature] = train[feat]/ train.groupby([card])[feat].transform('std')
+        test[cur_feature] = test[feat]/ test.groupby([card])[feat].transform('std')
+        
 
 train[['P_emaildomain_1', 'P_emaildomain_2', 'P_emaildomain_3']] = train['P_emaildomain'].str.split('.', expand=True)
 train[['R_emaildomain_1', 'R_emaildomain_2', 'R_emaildomain_3']] = train['R_emaildomain'].str.split('.', expand=True)
@@ -317,7 +194,7 @@ gp3 = test.groupby(['_Days', 'ProductCD'])['TransactionAmt'].apply(lambda X: var
 test = test.merge(gp3, on = [['_Days', 'ProductCD']], how = 'left')
 
 #########
-#Remove the highly correlated features:
+
 
 
 #########
@@ -553,17 +430,6 @@ rf_model = RandomForestClassifier(n_estimators = 10000,
     oob_score = True, max_features = 0.1)
 result_dict_rf = train_model_classification(X = X,
     X_test = X_test, y = y, folds = folds,model_type = 'sklearn', eval_metric = 'auc', early_stopping_rounds = 200, model = rf_model, averaging = 'rank' )
-#xgb_params = {'eta': 0.03,
-#               'max_depth': 6,
-#               'subsample': 0.88,
-#               'objective': 'binary:logistic',
-#               'eval_metric': 'auc',
-#               'silent': True,
-#               'nthread': -1,
-#               'tree_method': 'gpu_hist'}
-#print('Starting_Training!!')
-#result_dict_xgb = train_model_classification(X=X, X_test=X_test, y=y, params=xgb_params, folds=folds, model_type='xgb', eval_metric='auc', plot_feature_importance=False,
-#                                                       verbose=500, early_stopping_rounds=200, n_estimators=5500, averaging='rank')
 
 
 
