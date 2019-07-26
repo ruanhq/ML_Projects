@@ -1,5 +1,7 @@
+
 """
-Code to train the model
+The bottom architecture comes from and we simplify the training procedure.
+https://github.com/satyenrajpal/Concrete-Crack-Detection
 """
 import os
 import tensorflow as tf
@@ -44,6 +46,8 @@ def max_pool(layer,ksize,strides):
                            strides = strides,
                            padding = 'VALID')
     return layer
+
+
 ####################################################
 def new_fc_layer(input,           # The previous layer.
                  num_inputs,      # Num. inputs from prev. layer.
@@ -117,7 +121,10 @@ class Model:
         # Convert to a numpy array and return it in the form of [num_images,size,size,channel]
         #print(np.asarray(images[0]).shape)
         return np.asarray(images)
-    
+
+    ####
+    #Defining the model: Here we modified the original model to adapt the size and the amount of our collected data 
+    #Note that we replace average pooling to max pooling here.
     def define_model(self):
         #Convolution Layer 1
         filter_size1 = 10          # Convolution filters are 10 x 10 
@@ -141,6 +148,7 @@ class Model:
                                      num_filters=num_filters1)
         layer_conv1=tf.layers.batch_normalization(layer_conv1)
         print(layer_conv1.shape)
+
         #Max Pool Layer
         ksize1 = [1,4,4,1]
         strides1 = [1,2,2,1]
@@ -163,17 +171,20 @@ class Model:
                                      num_input_channels=num_filters2,
                                      filter_size=filter_size3,
                                      num_filters=num_filters3)
-        #Flatten
-        layer_flat, num_features = flatten_layer(layer_conv3)
+
+        #Flatten before attaching the fully-connected layers:
+        layer_flat, num_feaures = flatten_layer(layer_conv3)
         self.feature_map=layer_flat
         #Relu Layer
         layer_relu = tf.nn.leaky_relu(layer_flat)
+
         #Fully-Connected Layer1
         layer_fc1 = new_fc_layer(input=layer_relu,
                                  num_inputs=num_features,
                                  num_outputs=fc_size1,
                                  use_relu=True)
         layer_fc1=tf.nn.dropout(layer_fc1,keep_prob=0.6)
+
         #Fully-Connected Layer2:
         layer_fc2=new_fc_layer(input=layer_fc1,num_inputs=fc_size1,num_outputs=fc_size2,use_relu=True)
         layer_fc2=tf.nn.dropout(layer_fc2,keep_prob=0.6)
@@ -182,11 +193,12 @@ class Model:
                                  num_inputs=fc_size2,
                                  num_outputs=self.num_classes,
                                  use_relu=False)
+        ############
         #Predict the class
         y_pred = tf.nn.softmax(layer_fc3)
         self.y_pred_cls = tf.argmax(y_pred, dimension=1,name="predictions")
     
-        #Cost Function
+        #Using Cross-entropy as the loss function:
         cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=layer_fc3, labels=self.y_true)
         cost = tf.reduce_mean(cross_entropy)
         optimizer = tf.train.AdamOptimizer(learning_rate=1e-4).minimize(cost)
@@ -196,6 +208,8 @@ class Model:
         correct_prediction = tf.equal(self.y_pred_cls, self.y_true_cls)
         accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
         return optimizer, accuracy
+
+
     #random batch the data:
     """
     :Inspired by https://stackoverflow.com/questions/45281508/random-batch-generator-tensorflow

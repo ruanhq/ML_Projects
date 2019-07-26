@@ -83,7 +83,7 @@ class Dataset_test:
 
         return filenames
 
-
+    #Loading the images.
     def load_images(self,image_paths):
         # Load the images from disk.
         images = [cv2.imread(path) for path in image_paths]
@@ -108,6 +108,8 @@ def main(args):
                     in_dir=args.in_dir)
     test_images = dataset_test.images
 
+    ######
+    #Starting new graphs:
     graph = tf.Graph()
     with graph.as_default():
         with tf.Session() as sess:
@@ -132,7 +134,7 @@ def main(args):
             #Get the prediction
             predictions = graph.get_operation_by_name("predictions").outputs[0]
             
-            #Take one image at a time, pass it through the network and save it
+            #Take one image each time, pass it through the network and save the results:
             for counter,image in enumerate(test_images):
                 broken_image,h,w,h_no,w_no = break_image(image,128)
         
@@ -142,6 +144,7 @@ def main(args):
                 batch_predictions = sess.run(predictions, feed_dict = feed_dict)
             
                 matrix_pred = batch_predictions.reshape((h_no,w_no))
+                
                 #Concentrate after this for post processing
 
                 for i in range(0,h_no):
