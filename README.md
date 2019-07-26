@@ -1,3 +1,3 @@
 # ML_Projects
 
-This repo records a portfolio of data science/machine learning related projects I conducted.
+Selected projects related to broad areas in machine learning I conducted during graduate school and kaggle competition.
