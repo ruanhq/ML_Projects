@@ -351,3 +351,20 @@ def fast_auc(y_true, y_prob):
     auc /= (n_false *(n - n_false))
     return auc
 
+#########
+#Perform the out-of-bag prediction and stack a logistic regression onto the predicted features.
+xg1 = XgbWrapper(seed = SEED, params = xgb_params)
+et1 = SklearnWrapper(clf = ExtraTreesClassifier, seed = SEED, params = et_params)
+rf1 = SklearnWrapper(clf = RandomForestClassifier, seed = SEED, params = rf_params)
+cb1 = SklearnWrapper(clf = CatBoostClassifier, seed = SEED, params = catboost_params)
+lg1 = SklearnWrapper(clf = LGBMClassifier, seed = SEED, params = lightgbm_params)
+
+x_train = np.concatenate((xg_oof_train, et_oof_train, rf_oof_train, cb_oof_train), axis = 1)
+x_test = np.concatenate((xg_oof_test, et_oof_test, rf_oof_test, cb_oof_test), axis = 1)
+log_reg = LogisticRegression()
+log_reg.fit(x_train, y_train)
+test['isFraud'] = log_reg.predict_prob(x_test)[:, 1]
+#########
+
+
+

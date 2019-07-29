@@ -372,7 +372,7 @@ def train_model_classification(X, X_test, y, params, folds, model_type='lgb', ev
             result_dict['feature_importance'] = feature_importance
             result_dict['top_columns'] = cols
         
-    return prediction
+    return prediction, oof
 
 def fast_auc(y_true, y_prob):
     """
