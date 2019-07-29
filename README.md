@@ -6,4 +6,4 @@ Selected projects related to broad areas in machine learning I conducted during 
 2. LSTM based Text classification
 3. House Price Prediction(Kaggle playground)
 4. Titanic Survival Modeling(Kaggle playground)
-5. IEEE-CIS Transaction Fraud Detection(Ongoing Kaggle Competition)
+5. IEEE-CIS Transaction Fraud Detection Kaggle Competition: Ongoing
