@@ -10,10 +10,9 @@ def LSTM_AE_clf_binary(n_feature,
 	"""
 	:Construct a variational autoencoder with LSTM as component.
 	Param:
-	input_dim1:
-	input_dim2:
+	input_dim1: The input dimension
 	inter_dim1: Intermediate dimension for hidden layer
-	latent_dim: 
+	latent_dim: The dimension of the latent space.
 	"""
 	OPTIM = Adam(lr = 0.002)
 
