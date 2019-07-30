@@ -1,13 +1,14 @@
 # LSTM-Text_Classification
 
-The project mainly regards applying LSTM based deep neural network
+The project mainly regards applying RNN based deep neural network
 to perform text classification and apply upper level classifier on the RNN to further improve performance.
 
 Firstly we compare various models:
-1. Simple default LSTM classifier
-2. Bi-directional LSTM classifier
-3. Jointly train a LSTM-based Autoencoder and a MLP classifier attached at the latent space.
-4. Jointly train a LSTM-based VAE(Variational Autoencoder) and a MLP classifier attached at the latent space.
+1. Simple MLP classifier with GRU as component architecture
+2. Simple default LSTM classifier
+3. Bi-directional LSTM classifier
+4. Jointly train a LSTM-based Autoencoder and a MLP classifier attached at the latent space.
+5. Jointly train a LSTM-based VAE(Variational Autoencoder) and a MLP classifier attached at the latent space.
 
 Secondly apply more models on top of the predicted features from the first level models:
 Note that potentially autoencoder can serve as a powerful method for pre-training, the latent space is also what we need to pay much attention to as it can help us learn a compressed representation of the model(Also it can serve as a dimensionality reduction methodology).
