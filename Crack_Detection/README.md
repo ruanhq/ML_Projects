@@ -7,11 +7,11 @@ Here we start from scratch where we collected images from road near davis where 
 
 ##### The architecture for the CNN is shown as below.
 ![](images/architecture.png)
-##### To evaluate the model, we utilize MCC(Matthew's coefficient of correlation which leverage the TP,FP,FN,TN together) to calculate the efficiency of binary classification.
+ To evaluate the model, we utilize MCC(Matthew's coefficient of correlation which leverage the TP,FP,FN,TN together) to calculate the efficiency of binary classification. We achieved 0.874 at our collected dataset.
 
 ###### Selected results is shown as below:
-![](images/Boundary_effects.png)
-
+![](images/Boundary_effect.png)
+We observe that we achieved a good overall efficiency, the boundary effect may not be ignored especially when the crack lies at the boundary of a small sub-block.
 
 ## After fitting on our datasets, we generalize our model to other crack datasets from Internet and we observe that it can efficiently detect the cracks with irregular shape.
 (left subplot is the original plot and the right subplot represent the detected plot).
