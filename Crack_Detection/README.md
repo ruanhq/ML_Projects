@@ -1,4 +1,4 @@
 # Crack_Detection via CNN
-1. Developed a CNN with a novel architecture to detect which treated as a binary classification problem on sub-blocks of road  images.
-2. Achieved improved accuracy and MCC(Matthew's Correlation Coefficient) on the data collected with collaborators on highway near Davis, CA.
-
+Crack is a complete or incomplete separation of concrete into two or more parts produced by breaking or fracturing. Previous methodology to.
+Here we start from scratch where we collected images from road near davis where
+![images](Generalization.png)
