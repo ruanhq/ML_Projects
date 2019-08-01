@@ -3,6 +3,8 @@
 The project mainly regards applying RNN based deep neural network
 to perform text classification and apply upper level classifier on the RNN to further improve performance.
 
+## I: Main Steps:
+
 Firstly we compare various models:
 1. Simple MLP classifier with GRU as component architecture
 2. Simple default LSTM classifier
@@ -16,10 +18,9 @@ Then for the second step:
 1. Apply GBDT(Gradient Boosting Decision Tree) on the predicted features to perform binary classification.
 2. Apply XGBoost and fine-tune the parameters on the latent features.
 
-#. Discussion:
+## II: Lessons Learned:
+
 1. For acq response in Reuter text dataset, we achieve the test AUPR 0.906 and test AUROC more than 0.98 which is much better than the previous traditional methodologies(for simple LSTM the test AUPR is around 0.87).
 2. For imbalanced data, Accuracy and AUROC is not that informative compared to AUPR as we are particularly interested in those rare instances.
-
-
-#. Lessons learned:
-Autoencoder is very powerful in manifold learning and if the data has labels, we can attach a MLP classifier at the latent space and jointly train them together.
+3. AUROC can be pretty MISLEADING in imbalanced data as it doesn't use the information in the relative ratio between TN(True Negative) and FP(False Positive), FN(False Negative). So in this case, AUPR(Area Under Precision-Recall Curve) will definitely be a more useful tool.
+4. Autoencoder is very powerful in manifold learning and if the data has labels, we can attach a MLP classifier at the latent space and jointly train them together.
