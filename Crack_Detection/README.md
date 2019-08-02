@@ -6,7 +6,7 @@ Here we start from scratch where we collected images from road near davis where 
 #### In total we have 50000 images of 1024 * 1024 size. We designed a CNN(Convolutional Neural Network) to detect the image crack treated as a binary classification problem in the small sub-blocks with size (128 * 128) of whether there is a crack on the sub-block. 
 
 ##### The architecture for the CNN is shown as below.
-![](images/architecture.png)
+![](images/architecture.png) <br>
  To evaluate the model, we utilize MCC(Matthew's coefficient of correlation which leverage the TP,FP,FN,TN together) to calculate the efficiency of binary classification. We achieved 0.874 at our collected dataset.
 
 ###### Selected results is shown as below:
